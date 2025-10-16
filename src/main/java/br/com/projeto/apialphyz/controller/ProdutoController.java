@@ -1,27 +1,31 @@
 package br.com.projeto.apialphyz.controller;
 
 
+import br.com.projeto.apialphyz.model.Produto;
 import br.com.projeto.apialphyz.model.Usuario;
 import br.com.projeto.apialphyz.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuarios")
-public class UsuarioController {
+@RequestMapping("/produtos")
+public class ProdutoController {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioRepository produtoRepository;
 
 
     @GetMapping
-    public List<Usuario> listar() {
-        return usuarioRepository.findAll();
+    public List<Produto> listar() {
+        return produtoRepository.findAll();
     }
 
     @PostMapping
-    public Usuario salvar(@RequestBody Usuario usuario) {
-        return usuarioRepository.save(usuario);
-    }
+    public Produto salvar(@RequestBody Produto produto) {
+        return produtoRepository.save(produto);
+
+}
+
 }
