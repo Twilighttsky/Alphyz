@@ -1,15 +1,11 @@
-package br.com.projeto.apialphyz.model;
+package br.com.projeto.apialphyz.dto;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document(collection = "Cadastro")
-public class Usuario {
-    @Id
+public class RegistroDTO {
     private String id;
     private String nome;
+    private String email;
     private String senha;
+    private String cpf;
     private Integer idade;
     private String telefone;
     private String rua;
@@ -18,13 +14,6 @@ public class Usuario {
     private Integer cep;
     private String cidade;
     private String estado;
-
-
-    @Indexed(unique=true)
-    private String email;
-    @Indexed(unique=true)
-    private String cpf;
-
 
     public String getId() {
         return id;
@@ -118,9 +107,5 @@ public class Usuario {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-
-
-
 
 }

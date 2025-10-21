@@ -13,19 +13,6 @@ import java.util.List;
 @RequestMapping("/produtos")
 public class ProdutoController {
 
-    @Autowired
-    private UsuarioRepository produtoRepository;
-
-
-    @GetMapping
-    public List<Produto> listar() {
-        return produtoRepository.findAll();
-    }
-
-    @PostMapping
-    public Produto salvar(@RequestBody Produto produto) {
-        return produtoRepository.save(produto);
-
 }
 
-}
+
