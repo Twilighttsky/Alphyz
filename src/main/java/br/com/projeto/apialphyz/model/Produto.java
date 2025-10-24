@@ -7,9 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Produto {
     @Id
     private String id;
+    private String nome;
+    private String tamanho;
     private String descricao;
-    private double preco;
-
+    private String imgURL;
+    private boolean ativo = true;
+    //Ver onde colocar (Talvez precise ser no admin): private double preco;
 
 
     public String getId() {
@@ -24,10 +27,43 @@ public class Produto {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    public double getPreco() {
-        return preco;
+
+
+    public String getNome() {
+        return nome;
     }
-    public void setPreco(double preco) {
-        this.preco = preco;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public String getImgURL() {
+        return imgURL;
+    }
+
+    public void setImgURL(String imgURL) {
+        this.imgURL = imgURL;
+    }
+
+    // public double getPreco() {
+    //    return preco;
+    //  }
+    //  public void setPreco(double preco) {
+    //     this.preco = preco;
+    //}
+
 }

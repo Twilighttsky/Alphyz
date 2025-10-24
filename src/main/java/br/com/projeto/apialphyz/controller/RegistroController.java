@@ -1,8 +1,8 @@
 package br.com.projeto.apialphyz.controller;
 
-import br.com.projeto.apialphyz.dto.RegistroDTO;
+import br.com.projeto.apialphyz.dto.RegistroUsuarioDTO;
 import br.com.projeto.apialphyz.model.Usuario;
-import br.com.projeto.apialphyz.services.UsuarioService;
+import br.com.projeto.apialphyz.service.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,9 +20,9 @@ public class RegistroController {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<?> registrarUsuario(@RequestBody RegistroDTO registroDTO) {
+    public ResponseEntity<?> registrarUsuario(@RequestBody RegistroUsuarioDTO registroUsuarioDTO) {
         try {
-            Usuario novoUsuario = usuarioService.registrarNovoUsuario(registroDTO);
+            Usuario novoUsuario = usuarioService.registrarNovoUsuario(registroUsuarioDTO);
 
             // Retorna um status 201 Created (ou 200 OK com uma mensagem de sucesso)
             return ResponseEntity.status(HttpStatus.CREATED).body("Usuário registrado com sucesso!");

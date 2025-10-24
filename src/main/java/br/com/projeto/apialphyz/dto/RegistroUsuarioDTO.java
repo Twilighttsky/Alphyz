@@ -1,6 +1,6 @@
 package br.com.projeto.apialphyz.dto;
 
-public class RegistroDTO {
+public class RegistroUsuarioDTO {
     private String id;
     private String nome;
     private String email;
