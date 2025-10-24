@@ -7,13 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.ArrayList;
 import java.util.List;
 
-@Document(collection = "Cadastro")
+@Document(collection = "Usuario")
 public class Usuario {
     @Id
     private String id;
     private String nome;
     private String senha;
-    private Integer idade;
     private String telefone;
     private String rua;
     private String complemento;
@@ -71,13 +70,6 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-
-    public Integer getIdade() {
-        return idade;
-    }
-    public void setIdade(Integer idade) {
-        this.idade = idade;
-    }
 
 
     public String getTelefone() {

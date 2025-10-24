@@ -1,9 +1,9 @@
 package br.com.projeto.apialphyz.service;
 
-import br.com.projeto.apialphyz.dto.RegistroUsuarioDTO;
+import br.com.projeto.apialphyz.dto.CadastroUsuarioDTO;
+import br.com.projeto.apialphyz.dto.ReviewDTO;
 import br.com.projeto.apialphyz.model.Usuario;
 import br.com.projeto.apialphyz.repository.UsuarioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,30 +19,29 @@ public class UsuarioService {
 
     }
 
-    public Usuario registrarNovoUsuario(RegistroUsuarioDTO registroUsuarioDTO) {
+    public Usuario cadastrarNovoUsuario(CadastroUsuarioDTO cadastroUsuarioDTO) {
 
         // Verifica se o email ou CPF já estão no sistema
-        if (usuarioRepository.existsByEmail(registroUsuarioDTO.getEmail())) {
+        if (usuarioRepository.existsByEmail(cadastroUsuarioDTO.getEmail())) {
             throw new RuntimeException("Esse email já está cadastrado.");
-        } else if (usuarioRepository.existsByCpf(registroUsuarioDTO.getCpf())) {
+        } else if (usuarioRepository.existsByCpf(cadastroUsuarioDTO.getCpf())) {
             throw new RuntimeException("Esse CPF já está cadastrado.");
         }
 
 
 
         Usuario novoUsuario = new Usuario();
-        novoUsuario.setNome(registroUsuarioDTO.getNome());
-        novoUsuario.setEmail(registroUsuarioDTO.getEmail());
-        novoUsuario.setCpf(registroUsuarioDTO.getCpf());
-        novoUsuario.setTelefone(registroUsuarioDTO.getTelefone());
-        novoUsuario.setIdade(registroUsuarioDTO.getIdade());
-        novoUsuario.setSenha(registroUsuarioDTO.getSenha());
-        novoUsuario.setCep(registroUsuarioDTO.getCep());
-        novoUsuario.setCidade(registroUsuarioDTO.getCidade());
-        novoUsuario.setEstado(registroUsuarioDTO.getEstado());
-        novoUsuario.setRua(registroUsuarioDTO.getRua());
-        novoUsuario.setComplemento(registroUsuarioDTO.getComplemento());
-        novoUsuario.setNumero(registroUsuarioDTO.getNumero());
+        novoUsuario.setNome(cadastroUsuarioDTO.getNome());
+        novoUsuario.setEmail(cadastroUsuarioDTO.getEmail());
+        novoUsuario.setCpf(cadastroUsuarioDTO.getCpf());
+        novoUsuario.setTelefone(cadastroUsuarioDTO.getTelefone());
+        novoUsuario.setSenha(cadastroUsuarioDTO.getSenha());
+        novoUsuario.setCep(cadastroUsuarioDTO.getCep());
+        novoUsuario.setCidade(cadastroUsuarioDTO.getCidade());
+        novoUsuario.setEstado(cadastroUsuarioDTO.getEstado());
+        novoUsuario.setRua(cadastroUsuarioDTO.getRua());
+        novoUsuario.setComplemento(cadastroUsuarioDTO.getComplemento());
+        novoUsuario.setNumero(cadastroUsuarioDTO.getNumero());
 
         //Parte a ser atualizada - Criptografia de Senha
         // ideia: Usar JWT
@@ -53,5 +52,9 @@ public class UsuarioService {
         // novoUsuario.setRoles(Set.of(roleRepository.findByName("ROLE_USER")));
 
         return usuarioRepository.save(novoUsuario);
+    }
+
+
+    public void addReview(String id, ReviewDTO review) {
     }
 }

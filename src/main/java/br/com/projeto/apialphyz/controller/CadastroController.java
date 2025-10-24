@@ -1,30 +1,27 @@
 package br.com.projeto.apialphyz.controller;
 
-import br.com.projeto.apialphyz.dto.RegistroUsuarioDTO;
+import br.com.projeto.apialphyz.dto.CadastroUsuarioDTO;
 import br.com.projeto.apialphyz.model.Usuario;
 import br.com.projeto.apialphyz.service.UsuarioService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/autenticar")
-public class RegistroController {
+public class CadastroController {
 
 
     private final UsuarioService usuarioService;
-    public RegistroController(UsuarioService usuarioService) {
+    public CadastroController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping("/registrar")
-    public ResponseEntity<?> registrarUsuario(@RequestBody RegistroUsuarioDTO registroUsuarioDTO) {
+    @PostMapping("/cadastrar")
+    public ResponseEntity<?> cadastrarUsuario(@RequestBody CadastroUsuarioDTO cadastroUsuarioDTO) {
         try {
-            Usuario novoUsuario = usuarioService.registrarNovoUsuario(registroUsuarioDTO);
+            Usuario novoUsuario = usuarioService.cadastrarNovoUsuario(cadastroUsuarioDTO);
 
             // Retorna um status 201 Created (ou 200 OK com uma mensagem de sucesso)
             return ResponseEntity.status(HttpStatus.CREATED).body("Usuário registrado com sucesso!");

@@ -3,7 +3,7 @@ package br.com.projeto.apialphyz.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "produtos")
+@Document(collection = "Roupa")
 public class Produto {
     @Id
     private String id;
