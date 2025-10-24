@@ -3,6 +3,7 @@ package br.com.projeto.apialphyz.controller;
 import br.com.projeto.apialphyz.dto.RegistroUsuarioDTO;
 import br.com.projeto.apialphyz.model.Usuario;
 import br.com.projeto.apialphyz.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/autenticar")
 public class RegistroController {
+
 
     private final UsuarioService usuarioService;
     public RegistroController(UsuarioService usuarioService) {

@@ -4,6 +4,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Document(collection = "Cadastro")
 public class Usuario {
     @Id
@@ -18,6 +21,8 @@ public class Usuario {
     private Integer cep;
     private String cidade;
     private String estado;
+    private Role role;
+    private List<String> reviews = new ArrayList<>();
 
 
     @Indexed(unique=true)
@@ -119,7 +124,18 @@ public class Usuario {
         this.estado = estado;
     }
 
-
+ public Role getRole() {
+        return role;
+ }
+ public void setRole(Role role) {
+        this.role = role;
+ }
+ public List<String> getReviews() {
+        return reviews;
+    }
+    public void setReviews(List<String> reviews) {
+        this.reviews = reviews;
+    }
 
 
 

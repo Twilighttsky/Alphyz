@@ -3,13 +3,17 @@ package br.com.projeto.apialphyz.service;
 import br.com.projeto.apialphyz.dto.RegistroUsuarioDTO;
 import br.com.projeto.apialphyz.model.Usuario;
 import br.com.projeto.apialphyz.repository.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
 
 
     // Construtor para injeção de dependências
+    // pesquisar mais padrões de projeto
     public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
 
@@ -40,8 +44,9 @@ public class UsuarioService {
         novoUsuario.setComplemento(registroUsuarioDTO.getComplemento());
         novoUsuario.setNumero(registroUsuarioDTO.getNumero());
 
+        //Parte a ser atualizada - Criptografia de Senha
+        // ideia: Usar JWT
 
-        //Criptografa a senha antes de salvar
        // String senhaCriptografada = passwordEncoder.encode(registroDTO.getSenha());
        // novoUsuario.setSenha(senhaCriptografada);
 
